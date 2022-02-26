@@ -1,0 +1,17 @@
+git@github.com:University-of-Hull-CST/441101-2122-lab-10-CrimsonTome
+git@github.com:CrimsonTome/PD-report.git
+git@github.com:CrimsonTome/PD-personal-report.git
+git@github.com:chrrel/latex-report-template
+https://git.starbeamrainbowlabs.com/Demos/latex-templates
+git@github.com:chrrel/latex-report-template
+git@github.com:CrimsonTome/AOSC-report
+git@github.com:University-of-Hull-CST/441101-2122-t2-lab2-CrimsonTome.git
+git@github.com:University-of-Hull-CST/441101-2122-lab-7-CrimsonTome
+git@github.com:CrimsonTome/crimsontome-blog.git
+git@github.com:CrimsonTome/FreesideWeb
+git@github.com:dylanaraps/pure-bash-bible
+git@github.com:CrimsonTome/migrate.git
+git@github.com:CrimsonTome/StudentResources
+git@github.com:CrimsonTome/config.git
+git@github.com:CrimsonTome/templ
+git@github.com:solokeys/solo-python
