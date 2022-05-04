@@ -6,4 +6,4 @@
 #thanks to SBRL for this handy git repo url finder
 find /home/ctome/git/ -mount -type d -name '.git' -print0 | xargs -0 -I {} bash -c 'dirgit="{}"; dir="$(dirname "${dirgit}")"; cd "${dir}" && echo -e "$(git remote -v | tr " " "\t" | cut -f 2 | head -n1)";' |grep .com > repos.txt && mkdir -p repos;
 
-cd repos && cat ../repos.txt |xargs -0 git clone;
+# cd repos && cat ../repos.txt |xargs -0 git clone;
