@@ -28,7 +28,6 @@ git@github.com:sharkdp/bat
 git@github.com:Jguer/yay
 git@github.com:polybar/polybar
 git@github.com:Raymo111/i3lock-color
-git@github.com:andresgongora/synth-shell
 git@github.com:deviantfero/wpgtk
 git@github.com:gchq/CyberChef
 git@github.com:EbookFoundation/free-programming-books
@@ -46,7 +45,6 @@ git@github.com:KieranRobson/PokemonResources
 git@github.com:tobiasbueschel/awesome-pokemon
 git@github.com:CrimsonTome/crimsontome-blog.git
 git@github.com:admgecko/freeside_bolt_config
-git@github.com:CrimsonTome/Universal-FE-Randomizer.git
 git@github.com:darylhjd/mangadesk.git
 git@github.com:mrwunderbar666/py_wayback_downloader.git
 git@github.com:University-of-Hull-CST/441101-2122-t2-herosquest-CrimsonTome
@@ -130,8 +128,16 @@ git@github.com:FreesideHull/Webhooks.git
 git@github.com:FreesideHull/paperspigot-docker.git
 git@github.com:FreesideHull/Freeside-Ansible.git
 git@github.com:FreesideHull/3thinggame-2020.git
-git@github.com:FreesideHull/FreesideWeb.git
 git@github.com:FreesideHull/FreesideBot.git
 git@github.com:FreesideHull/climax-game-jam.git
 git@github.com:FreesideHull/StudentResources.git
 git@github.com:FreesideHull/hullblogs.com.git
+git@github.com:CrimsonTome/awesome-discord-tools-fork
+git@github.com:lushen124/Universal-FE-Randomizer
+git@github.com:andresgongora/synth-shell.git
+git@git.starbeamrainbowlabs.com:sbrl/Linux-101.git
+git@gist.github.com:b530938232834fdff1e493b07e1dd085.git
+git@github.com:Educorreia932/Github-Pie-Chart
+git@github.com:vegasbrianc/docker-monitoring
+git@github.com:CrimsonTome/FreesideWeb
+git@github.com:CrimsonTome/Tutorials
