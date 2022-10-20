@@ -8,3 +8,6 @@
 
 # cd repos && cat ../repos.txt |xargs -0 git clone;
 
+
+# the newer way of cloning repos that you own
+gh repo list --limit 100 |awk '{print $1}'  | xargs -L1 gh repo clone
