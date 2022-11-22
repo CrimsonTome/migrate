@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+
+# set some variables
+
+homeDir=$HOME 
+echo $homeDir
+
+hostname=$HOSTNAME 
+echo $hostname
+
+os=$(lsb_release -d| awk '{print $2}') # definitely works on Fedora
+echo $os
+
+# ensure some directories exist
+gitDir=$homeDir"/git"
+[ ! -d $gitDir ] && mkdir -p $gitDir || echo $gitDir" already exists"
+
+sshDir=$homeDir"/.ssh"
+[ ! -d $sshDir ] && mkdir -p $sshDir || echo $sshDir" already exists"
+
+configDir=$homeDir"/.config"
+[ ! -d $configDir ] && mkdir -p $configDir || echo $configDir" already exists"
+
+
+# create an ssh key, for use with git/github
+ssh-keygen -t ed25519 -f $sshDir"/id_ed25519_git" -N ''
