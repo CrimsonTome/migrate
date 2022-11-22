@@ -33,7 +33,7 @@ if [[ $os == "Ubuntu" ]]; then
     echo "using apt package manager";
     sudo apt-get update && sudo apt-get upgrade;
     sudo apt install -y `cat apt-packages`;
-    sudo snap install `cat snap-packages`;
+    cat snap-packages| xargs -n 1 sudo snap install --classic
     wget https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb;
     sudo apt install ./discord-0.0.21.deb;
 elif [[ $os == "Fedora" ]]; then
