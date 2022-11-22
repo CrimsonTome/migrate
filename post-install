@@ -12,6 +12,9 @@ echo $hostname
 os=$(lsb_release -d| awk '{print $2}') # definitely works on Fedora
 echo $os
 
+[ $os == "Ubuntu" ] && packageManager='apt' || [ $os == "Fedora" ] && packageManager='dnf' || echo "OS not yet supported"
+
+echo $packageManager
 # ensure some directories exist
 gitDir=$homeDir"/git"
 [ ! -d $gitDir ] && mkdir -p $gitDir || echo $gitDir" already exists"
