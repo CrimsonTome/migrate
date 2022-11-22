@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# 'system migration' script designed to be ran once an os installed.
 
 # set some variables
 
@@ -20,6 +21,9 @@ sshDir="~/.ssh"
 configDir="~/.config"
 [ ! -d $configDir ] && mkdir -p $configDir || echo $configDir" already exists"
 
+userBinDir="~/bin"
+[ ! -d $userBinDir ] && mkdir -p $userBinDir || echo $userBindir" already exists"
+
 
 # create an ssh key, for use with git/github
 ssh-keygen -t ed25519 -f $sshDir"/id_ed25519_git" -N ''
@@ -34,13 +38,16 @@ if [[ $os == "Ubuntu" ]]; then
     wget https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb;
     sudo apt install ./discord-0.0.21.deb;
     git clone https://github.com/crimsontome/config;
+    cp -f config/bin/* $userBinDir
     cp -f config/ub-server/.bashrc ~/;
     cp -f config/.gitconfig ~/;
     cp -f config/.ssh/config $sshDir/config
 elif [[ $os == "Fedora" ]]; then
     echo "dnf is not yet supported";
+    exit
 else
     echo "OS not yet supported";
+    exit
 fi 
 
 cd $gitdir
