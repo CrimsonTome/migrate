@@ -12,9 +12,7 @@ echo $hostname
 os=$(lsb_release -d| awk '{print $2}') # definitely works on Fedora
 echo $os
 
-[ $os == "Ubuntu" ] && packageManager='apt' || [ $os == "Fedora" ] && packageManager='dnf' || echo "OS not yet supported"
 
-echo $packageManager
 # ensure some directories exist
 gitDir=$homeDir"/git"
 [ ! -d $gitDir ] && mkdir -p $gitDir || echo $gitDir" already exists"
@@ -28,3 +26,13 @@ configDir=$homeDir"/.config"
 
 # create an ssh key, for use with git/github
 ssh-keygen -t ed25519 -f $sshDir"/id_ed25519_git" -N ''
+
+
+# check package manager
+if [[ $os == "Ubuntu" ]]; then 
+    sudo apt install $(cat packages)`
+elif [[ $os == "Fedora" ]] then
+    echo "test"
+else
+    echo "OS not yet supported"
+fi 
