@@ -34,23 +34,23 @@ if [[ $os == "Ubuntu" ]]; then
     echo "using apt package manager";
     sudo apt-get update && sudo apt-get upgrade;
     sudo apt install -y `cat apt-packages`;
-    cat snap-packages| xargs -n 1 sudo snap install --classic
+    cat snap-packages| xargs -n 1 sudo snap install --classic;
     wget https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb;
     sudo apt install ./discord-0.0.21.deb;
     git clone https://github.com/crimsontome/config;
-    cp -f config/bin/* $userBinDir
+    cp -f config/bin/* $userBinDir;
     cp -f config/ub-server/.bashrc ~/;
     cp -f config/.gitconfig ~/;
     cp -f config/.ssh/config $sshDir/config
 elif [[ $os == "Fedora" ]]; then
     echo "dnf is not yet supported";
-    exit
+    exit;
 else
     echo "OS not yet supported";
-    exit
+    exit;
 fi 
 
-cd $gitdir
-gh auth login
+cd $gitdir;
+gh auth login;
 # after logged into gh
-gh repo list --limit 100 |awk '{print $1}'  | xargs -L1 gh repo clone
+gh repo list --limit 100 |awk '{print $1}'  | xargs -L1 gh repo clone;
