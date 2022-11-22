@@ -30,8 +30,9 @@ ssh-keygen -t ed25519 -f $sshDir"/id_ed25519_git" -N ''
 
 # check package manager
 if [[ $os == "Ubuntu" ]]; then 
-    sudo apt install -y $(cat apt-packages);
-    sudo snap install $(cat snap-packages);
+    sudo apt-get update && sudo apt-get upgrade;
+    sudo apt install -y `cat apt-packages`;
+    sudo snap install `cat snap-packages`;
     wget https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb;
     sudo apt install -f ./discord-0.0.21.deb;
 elif [[ $os == "Fedora" ]]; then
