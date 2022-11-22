@@ -9,7 +9,6 @@ krita
 libreoffice
 mpv
 obs-studio
-opencomic
 qbittorrent
 remmina
 thunderbird
@@ -21,7 +20,6 @@ vim
 bat
 docker
 docker-compose
-dotnet-sdk-6.0
 exa
 fdupes
 gcc
@@ -34,11 +32,9 @@ nginx
 nmap
 npm
 nodejs
-nushell
 pandoc
 screen
 tldr
-terraform
 ufw
 wireshark
 yt-dlp
