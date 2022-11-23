@@ -64,6 +64,9 @@ fi
 cd ~/git/;
 pwd
 gh auth login;
+xclip -sel clip ~/.ssh/id_ed25519_git.pub
+firefox https://github.com/settings/ssh/new
+
 # after logged into gh
 
 
