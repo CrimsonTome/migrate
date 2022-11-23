@@ -22,7 +22,7 @@ mkdir -p ~/.config/
 mkdir -p ~/bin/
 
 # create an ssh key, for use with git/github
-ssh-keygen -t ed25519 -f "/home/`whoami`/.ssh/id_ed25519_git" -N ''
+ssh-keygen -t ed25519 -N ''
 setup_config()
 {
     cd ~
@@ -64,7 +64,7 @@ fi
 cd ~/git/;
 pwd
 gh auth login;
-xclip -sel clip ~/.ssh/id_ed25519_git.pub
+xclip -sel clip ~/.ssh/id_ed25519.pub
 firefox https://github.com/settings/ssh/new
 
 # after logged into gh
