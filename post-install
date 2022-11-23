@@ -16,27 +16,19 @@ echo $os
 
 
 # ensure some directories exist
-gitDir="~/git"
-[ ! -d $gitDir ] && mkdir -p $gitDir || echo $gitDir" already exists"
-
-sshDir="~/.ssh"
-[ ! -d $sshDir ] && mkdir -p $sshDir || echo $sshDir" already exists"
-
-configDir="~/.config"
-[ ! -d $configDir ] && mkdir -p $configDir || echo $configDir" already exists"
-
-userBinDir="~/bin"
-[ ! -d $userBinDir ] && mkdir -p $userBinDir || echo $userBindir" already exists"
-
+mkdir -p ~/git/
+mkdir -p ~/.ssh/
+mkdir -p ~/.config/
+mkdir -p ~/bin/
 
 # create an ssh key, for use with git/github
-ssh-keygen -t ed25519 -f $sshDir"/id_ed25519_git" -N ''
+ssh-keygen -t ed25519 -f "~/.ssh/id_ed25519_git" -N ''
 
 setup_config()
 {
-
+    cd ~
     git clone https://github.com/crimsontome/config;
-    cp -f config/bin/* $userBinDir;
+    cp -f config/bin/* ~/bin;
     if [[ $os == "Ubuntu" ]]; then
         cp -f config/ub-server/.bashrc ~/;
     elif [[ $os == "Fedora" ]]; then
@@ -48,7 +40,7 @@ setup_config()
         exit; 
     fi
     cp -f config/.gitconfig ~/;
-    cp -f config/.ssh/config $sshDir/config
+    cp -f config/.ssh/config .ssh/config
 }
 # check package manager
 if [[ $os == "Ubuntu" ]]; then 
@@ -70,7 +62,7 @@ else
     
 fi 
 
-cd $gitdir;
+cd ~/git/;
 pwd
 gh auth login;
 # after logged into gh
