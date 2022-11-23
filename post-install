@@ -32,7 +32,24 @@ userBinDir="~/bin"
 # create an ssh key, for use with git/github
 ssh-keygen -t ed25519 -f $sshDir"/id_ed25519_git" -N ''
 
+setup_config()
+{
 
+    git clone https://github.com/crimsontome/config;
+    cp -f config/bin/* $userBinDir;
+    if [[ $os == "Ubuntu" ]]; then
+        cp -f config/ub-server/.bashrc ~/;
+    elif [[ $os == "Fedora" ]]; then
+        cp -f config/fedora/.bashrc ~/;
+    elif [[ $os == "Arch" ]]; then
+        cp -f config/arch/.bashrc ~/;   
+    else
+        echo "OS specific bashrc not yet supported";
+        exit; 
+    fi
+    cp -f config/.gitconfig ~/;
+    cp -f config/.ssh/config $sshDir/config
+}
 # check package manager
 if [[ $os == "Ubuntu" ]]; then 
     echo "using apt package manager";
@@ -53,31 +70,10 @@ else
     
 fi 
 
-setup_config()
-{
-
-    git clone https://github.com/crimsontome/config;
-    cp -f config/bin/* $userBinDir;
-    if [[ $os == "Ubuntu" ]]; then
-        cp -f config/ub-server/.bashrc ~/;
-    elif [[ $os == "Fedora" ]]; then
-        cp -f config/fedora/.bashrc ~/;
-    elif [[ $os == "Arch" ]]; then
-        cp -f config/arch/.bashrc ~/;   
-    else
-        echo "OS specific bashrc not yet supported";
-        exit; 
-    fi
-    cp -f config/.gitconfig ~/;
-    cp -f config/.ssh/config $sshDir/config
-}
-
 cd $gitdir;
 gh auth login;
 # after logged into gh
 
-# set up ssh keys
-firefox https://github.com/settings/ssh/new
 
 #TODO: do gpg stuff toO
 
