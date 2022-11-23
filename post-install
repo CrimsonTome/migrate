@@ -41,21 +41,36 @@ if [[ $os == "Ubuntu" ]]; then
     cat snap-packages| xargs -n 1 sudo snap install --classic;
     wget https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb;
     sudo apt install ./discord-0.0.21.deb;
-    git clone https://github.com/crimsontome/config;
-    cp -f config/bin/* $userBinDir;
-    cp -f config/ub-server/.bashrc ~/;
-    cp -f config/.gitconfig ~/;
-    cp -f config/.ssh/config $sshDir/config
+    setup_config $os;
 elif [[ $os == "Fedora" ]]; then
     echo "dnf is not yet supported";
-    exit;
+    setup_config $os;
 elif [[ $os == "Arch" ]]; then
     echo "pacman is not yet supported";
-    exit;
+    setup_config $os;
 else
-    echo "OS not yet supported";
-    exit;
+    echo "OS package manager is not yet supported";
+    
 fi 
+
+setup_config()
+{
+
+    git clone https://github.com/crimsontome/config;
+    cp -f config/bin/* $userBinDir;
+    if [[ $os == "Ubuntu" ]]; then
+        cp -f config/ub-server/.bashrc ~/;
+    elif [[ $os == "Fedora" ]]; then
+        cp -f config/fedora/.bashrc ~/;
+    elif [[ $os == "Arch" ]]; then
+        cp -f config/arch/.bashrc ~/;   
+    else
+        echo "OS specific bashrc not yet supported";
+        exit; 
+    fi
+    cp -f config/.gitconfig ~/;
+    cp -f config/.ssh/config $sshDir/config
+}
 
 cd $gitdir;
 gh auth login;
