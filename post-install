@@ -81,4 +81,9 @@ firefox https://github.com/settings/ssh/new
 
 #TODO: do gpg stuff toO
 
+# gpg --export --armor KEY > pubkey.asc && gpg --export-secret-keys --armor KEY > privatekey.asc
+# scp them to machine ~/keys
+
+[ ! -d ~/keys ] && echo "No keys found" || gpg --import keys/*; echo "GPG keys imported"
+
 gh repo list --limit 100 |awk '{print $1}'  | xargs -L1 gh repo clone;
