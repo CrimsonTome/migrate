@@ -49,6 +49,9 @@ if [[ $os == "Ubuntu" ]]; then
 elif [[ $os == "Fedora" ]]; then
     echo "dnf is not yet supported";
     exit;
+elif [[ $os == "Arch" ]]; then
+    echo "pacman is not yet supported";
+    exit;
 else
     echo "OS not yet supported";
     exit;
