@@ -22,8 +22,7 @@ mkdir -p ~/.config/
 mkdir -p ~/bin/
 
 # create an ssh key, for use with git/github
-ssh-keygen -t ed25519 -f "~/.ssh/id_ed25519_git" -N ''
-
+ssh-keygen -t ed25519 -f "/home/`whoami`/.ssh/id_ed25519_git" -N ''
 setup_config()
 {
     cd ~
