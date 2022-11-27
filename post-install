@@ -49,6 +49,31 @@ if [[ $os == "Ubuntu" ]]; then
     cat snap-packages| xargs -n 1 sudo snap install --classic;
     wget https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb;
     sudo apt install ./discord-0.0.21.deb;
+
+    #setup uni vpn
+
+    sudo apt install openconnect python3-pip python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.0
+    pip3 install https://github.com/dlenski/gp-saml-gui/archive/master.zip
+   
+    echo "$USER    ALL=(root)    NOPASSWD:SETENV:    /usr/sbin/openconnect, /etc/vpnc/vpnc-script" | sudo tee /etc/sudoers.d/hullvpn
+    sudo chmod 0440 /etc/sudoers.d/hullvpn
+   
+    echo "openssl_conf = openssl_init
+    [openssl_init]
+    ssl_conf = ssl_sect
+    [ssl_sect]
+    system_default = system_default_sect
+    [system_default_sect]
+    Options = UnsafeLegacyRenegotiation" > ~/.hullvpn-ssl.cnf    
+    
+    echo "[Desktop Entry]
+    Name=University of Hull VPN
+    Comment=Connect to the University of Hull's VPN.
+    Exec=hullvpn
+    Terminal=false
+    Type=Application" > ~/.config/autostart/hullvpn.desktop
+
+
     setup_config $os;
 elif [[ $os == "Fedora" ]]; then
     echo "dnf is not yet supported";
